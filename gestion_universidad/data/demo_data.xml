@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="carrera_demo_informatica" model="estudiante.carrera">
+            <field name="name">Ingeniería en Informática</field>
+        </record>
+
+        <record id="seccion_demo_a" model="estudiante.seccion">
+            <field name="name">Sección A</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="semestre">2</field>
+        </record>
+
+        <record id="seccion_demo_b" model="estudiante.seccion">
+            <field name="name">Sección B</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="semestre">2</field>
+        </record>
+
+        <record id="seccion_demo_c" model="estudiante.seccion">
+            <field name="name">Sección C</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="semestre">2</field>
+        </record>
+
+        <record id="estudiante_demo_1" model="estudiante.estudiante">
+            <field name="name">Sebastian Espinoza</field>
+            <field name="cedula">V-32798542</field> <field name="semestre">2</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="seccion_univ_id" ref="seccion_demo_a"/>
+        </record>
+
+        <record id="estudiante_demo_2" model="estudiante.estudiante">
+            <field name="name">Ana Martínez</field>
+            <field name="cedula">V-30123456</field> <field name="semestre">2</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="seccion_univ_id" ref="seccion_demo_a"/>
+        </record>
+
+        <record id="estudiante_demo_3" model="estudiante.estudiante">
+            <field name="name">Carlos Mendoza</field>
+            <field name="cedula">V-31456789</field> <field name="semestre">2</field>
+            <field name="carrera_id" ref="carrera_demo_informatica"/>
+            <field name="seccion_univ_id" ref="seccion_demo_b"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+# Sistema de Gestión Universitaria - Odoo
+
+Este es un módulo desarrollado para Odoo que permite la gestión académica integral de instituciones universitarias. El módulo permite administrar la estructura académica, desde carreras y secciones hasta la asignación de profesores y materias.
+
+## Características principales
+- **Gestión Académica:** Registro organizado de estudiantes, profesores y materias.
+- **Estructura jerárquica:** Organización por carreras, semestres y secciones con turnos asignables.
+- **Filtros Dinámicos:** Asignación inteligente de materias y secciones mediante dominios de Odoo, evitando errores de registro.
+- **Interfaz Intuitiva:** Vistas optimizadas a dos columnas con pestañas para una experiencia de usuario profesional.
+- **Relaciones de Datos:** Arquitectura relacional sólida para un control preciso de la carga académica.
+
+## Tecnologías utilizadas
+- **Odoo Framework**
+- **Python** (Backend y lógica de negocio)
+- **XML** (Vistas y diseño de interfaz)
+- **PostgreSQL** (Gestión de base de datos relacional)
+
+## Instalación
+1. Asegúrate de tener Odoo instalado en tu entorno.
+2. Clona este repositorio en tu carpeta de `addons`.
+3. Reinicia tu servidor Odoo y actualiza la lista de aplicaciones.
+4. Instala el módulo "Gestión Universitaria UPTP".
+
+## 📸 Vistas del sistema
+
+Aquí puedes ver cómo luce el sistema en acción:
+
+**Formulario de Estudiante:**
+![Formulario de Estudiante](images/lista_estudiantes.png)
+
+**Lista de Profesores:**
+![Lista de Profesores](images/lista_profesores.png)
+
+**Lista de Carreras:**
+![Lista de Carreras](images/lista_carreras.png)
+
+## Autor
+**Jhosert Sneider Sánchez Varón**
+*Estudiante de Ingeniería en Informática*
+
+---
+*Este proyecto fue desarrollado como parte de un proceso de aprendizaje en desarrollo de sistemas ERP y gestión académica.*

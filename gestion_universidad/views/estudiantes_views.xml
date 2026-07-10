@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_carrera" model="ir.actions.act_window">
+        <field name="name">Carreras</field>
+        <field name="res_model">estudiante.carrera</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_seccion" model="ir.actions.act_window">
+        <field name="name">Secciones</field>
+        <field name="res_model">estudiante.seccion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_profesor" model="ir.actions.act_window">
+        <field name="name">Profesores</field>
+        <field name="res_model">estudiante.profesor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_materia" model="ir.actions.act_window">
+        <field name="name">Materias</field>
+        <field name="res_model">estudiante.materia</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_estudiante" model="ir.actions.act_window">
+        <field name="name">Estudiantes</field>
+        <field name="res_model">estudiante.estudiante</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_carrera_tree" model="ir.ui.view">
+        <field name="name">estudiante.carrera.tree</field>
+        <field name="model">estudiante.carrera</field>
+        <field name="arch" type="xml">
+            <tree string="Carreras">
+                <field name="codigo"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_carrera_form" model="ir.ui.view">
+        <field name="name">estudiante.carrera.form</field>
+        <field name="model">estudiante.carrera</field>
+        <field name="arch" type="xml">
+            <form string="Carrera">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Ej. Informática"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="codigo"/>
+                    </group>
+                    <notebook>
+                        <page string="Materias de la Carrera">
+                            <field name="materia_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="profesor_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_seccion_tree" model="ir.ui.view">
+        <field name="name">estudiante.seccion.tree</field>
+        <field name="model">estudiante.seccion</field>
+        <field name="arch" type="xml">
+            <tree string="Secciones">
+                <field name="name"/>
+                <field name="carrera_id"/>
+                <field name="semestre"/>
+                <field name="turno"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_seccion_form" model="ir.ui.view">
+        <field name="name">estudiante.seccion.form</field>
+        <field name="model">estudiante.seccion</field>
+        <field name="arch" type="xml">
+            <form string="Sección">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="turno"/>
+                        </group>
+                        <group>
+                            <field name="carrera_id"/>
+                            <field name="semestre"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_profesor_tree" model="ir.ui.view">
+        <field name="name">estudiante.profesor.tree</field>
+        <field name="model">estudiante.profesor</field>
+        <field name="arch" type="xml">
+            <tree string="Profesores">
+                <field name="name"/>
+                <field name="cedula"/>
+                <field name="carrera_ids" widget="many2many_tags"/>
+                <field name="seccion_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_profesor_form" model="ir.ui.view">
+        <field name="name">estudiante.profesor.form</field>
+        <field name="model">estudiante.profesor</field>
+        <field name="arch" type="xml">
+            <form string="Profesor">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre y Apellido..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Datos Personales">
+                            <field name="cedula"/>
+                            <field name="telefono"/>
+                        </group>
+                        <group string="Asignaciones Globales">
+                            <field name="carrera_ids" widget="many2many_tags"/>
+                            <field name="seccion_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Materias Asignadas">
+                            <field name="materia_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="carrera_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_materia_tree" model="ir.ui.view">
+        <field name="name">estudiante.materia.tree</field>
+        <field name="model">estudiante.materia</field>
+        <field name="arch" type="xml">
+            <tree string="Materias">
+                <field name="name"/>
+                <field name="carrera_id"/>
+                <field name="profesor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_materia_form" model="ir.ui.view">
+        <field name="name">estudiante.materia.form</field>
+        <field name="model">estudiante.materia</field>
+        <field name="arch" type="xml">
+            <form string="Materia">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="carrera_id"/>
+                        <field name="profesor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_estudiante_tree" model="ir.ui.view">
+        <field name="name">estudiante.estudiante.tree</field>
+        <field name="model">estudiante.estudiante</field>
+        <field name="arch" type="xml">
+            <tree string="Estudiantes">
+                <field name="nombre"/>
+                <field name="apellido"/>
+                <field name="cedula"/>
+                <field name="carrera_id"/>
+                <field name="semestre"/>
+                <field name="seccion_univ_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_estudiante_form" model="ir.ui.view">
+        <field name="name">estudiante.estudiante.form</field>
+        <field name="model">estudiante.estudiante</field>
+        <field name="arch" type="xml">
+            <form string="Estudiante">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nombre" placeholder="Nombre"/>
+                            <field name="apellido" placeholder="Apellido"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Datos Personales">
+                            <field name="cedula"/>
+                        </group>
+                        <group string="Datos Académicos">
+                            <field name="carrera_id"/>
+                            <field name="semestre"/>
+                            <field name="seccion_univ_id"
+                            widget="selection" 
+                            domain="[('carrera_id', '=', carrera_id), ('semestre', '=', semestre)]"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Materias Inscritas">
+                            <field name="materia_ids" domain="[('carrera_id', '=', carrera_id)]" widget="many2many_tags" placeholder="Seleccione las materias..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_gestion_root" name="Gestión Universitaria"/>
+    
+    <menuitem id="menu_academico" name="Académico" parent="menu_gestion_root" sequence="10"/>
+    <menuitem id="menu_configuracion" name="Configuración" parent="menu_gestion_root" sequence="20"/>
+
+    <menuitem id="menu_estudiante" name="Estudiantes" parent="menu_academico" action="action_estudiante" sequence="10"/>
+    <menuitem id="menu_profesor" name="Profesores" parent="menu_academico" action="action_profesor" sequence="20"/>
+    <menuitem id="menu_materia" name="Materias" parent="menu_academico" action="action_materia" sequence="30"/>
+
+    <menuitem id="menu_carrera" name="Carreras" parent="menu_configuracion" action="action_carrera" sequence="10"/>
+    <menuitem id="menu_seccion" name="Secciones" parent="menu_configuracion" action="action_seccion" sequence="20"/>
+
+</odoo>

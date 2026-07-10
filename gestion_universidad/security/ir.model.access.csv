@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_estudiante,access.estudiante,model_estudiante_estudiante,base.group_user,1,1,1,1
+access_materia,access.materia,model_estudiante_materia,base.group_user,1,1,1,1
+access_carrera,access.carrera,model_estudiante_carrera,base.group_user,1,1,1,1
+access_profesor,access.profesor,model_estudiante_profesor,base.group_user,1,1,1,1
+access_seccion,access.seccion,model_estudiante_seccion,base.group_user,1,1,1,1
